@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Travelling</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="card-background-page">
+
+  <ion-card (click)="openNaturePage()">
+    <img src="../assets/imgs/Roque-Nublo.jpg"/>
+    <div class="card-title">Mountains & Beaches</div>
+    <div class="card-subtitle">7 entries</div>
+  </ion-card>
+
+  <ion-card (click)="openShopsPage()">
+    <img src="../assets/imgs/triana.jpg"/>
+    <div class="card-title">Shops & Restaurants </div>
+    <div class="card-subtitle">5 entries</div>
+  </ion-card>
+
+  <ion-card (click)="openSightsPage()">
+    <img src="../assets/imgs/elder.jpg"/>
+    <div class="card-title">Museums & Sights</div>
+    <div class="card-subtitle">5 entries</div>
+  </ion-card>
+</ion-content>

@@ -1,3 +1,96 @@
 page-home {
 
 }
+
+div + div { /*space between divs*/
+  //margin-left: 30px;
+  //margin-right: 30px;
+}
+
+.center .scroll-content {
+  display: table !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin-top: -50px; /* the height of the centered content */
+  text-align: center;
+}
+.center .scroll {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.float {
+  display: inline-block;
+  width: 300px;
+  height: 150px;
+  text-align: center;
+  margin-left: 30px;
+  margin-right: 30px;
+  //border-style: solid;
+}
+
+.float2 {
+  vertical-align:top;
+  display: inline-block;
+  width: 300px;
+  height: 150px;
+  text-align: left;
+  margin-left: 30px;
+  margin-right: 30px;
+  //border-style: solid;
+}
+
+.text {
+  font-size: 16px;
+}
+
+.icon {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 90px;
+  color: #00145d;
+}
+
+#intro {
+  background-color: #488aff;
+  width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#title {
+  width: 300px;
+  height: 250px;
+  vertical-align: middle;
+   //color: #00145d;
+ }
+
+#title h1 {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  display: inline-block;
+  text-align: center;
+  color: white;
+  vertical-align:top;
+}
+
+#logo {
+  width: 300px;
+  height: 250px;
+  vertical-align: middle;
+  //color: #00145d;
+}
+
+#logo ion-img {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 90px;
+  display: inline-block;
+  text-align: left;
+  vertical-align:top;
+  background: transparent !important;
+}

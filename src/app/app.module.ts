@@ -5,6 +5,16 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { TravelPage } from '../pages/travel/travel';
+import { NaturePage } from "../pages/travel/nature/nature";
+import { LivePage } from '../pages/live/live';
+import { StudyPage } from '../pages/study/study';
+import { ForumPage} from '../pages/forum/forum';
+import { ShopsPage } from "../pages/travel/shops/shops";
+import { OverviewPage } from "../pages/travel/overview/overview";
+import { BucketlistPage } from "../pages/travel/bucketlist/bucketlist";
+import { SightsPage } from "../pages/travel/sights/sights";
+import { NiePage } from "../pages/live/nie/nie";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -13,7 +23,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    TravelPage,
+    NaturePage,
+    ShopsPage,
+    LivePage,
+    StudyPage,
+    ForumPage,
+    OverviewPage,
+    BucketlistPage,
+    SightsPage,
+    NiePage
   ],
   imports: [
     BrowserModule,
@@ -23,7 +43,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    TravelPage,
+    NaturePage,
+    ShopsPage,
+    LivePage,
+    StudyPage,
+    ForumPage,
+    OverviewPage,
+    BucketlistPage,
+    SightsPage,
+    NiePage
   ],
   providers: [
     StatusBar,

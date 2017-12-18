@@ -7,12 +7,91 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content padding class="center scroll-content">
+  <div id="intro">
+    <div class="float" id="logo">
+      <ion-img height="250" width="300" src="../assets/imgs/logo-lpgc.png"></ion-img>
+    </div>
+    <div class="float2" id="title">
+      <h1>Welcome to Las Palmas de Gran Canaria</h1>
+    </div>
+  </div>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <br/>
+  <br/>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <div id="travelling">
+    <div class="float" id="travel-icon">
+      <img src="../assets/imgs/travel.jpg"/>
+    </div>
+
+    <div class="float2" id="travel-text">
+      <h2 style="color: #488aff;" (click)="openTravelPage()"> Travelling </h2>
+      <p class="text">
+        Find out what Las Palmas de Gran Canaria has to offer!
+        Mountains, beaches, or shopping malls?
+        Find the most fun and exciting locations and activities here!
+      </p>
+    </div>
+  </div>
+
+  <br/>
+  <hr>
+  <br/>
+
+  <div id="living">
+
+    <div class="float2" id="live-icon">
+      <h2 style="color: #488aff;" (click)="openLivePage()"> Living </h2>
+      <p class="text">
+        Planning to stay a while longer in Las Palmas de Gran Canaria?
+        Find out how to get settled here!
+      </p>
+    </div>
+
+    <div class="float" id="live-text">
+      <img src="../assets/imgs/live.jpg"/>
+    </div>
+  </div>
+
+  <br/>
+  <hr>
+  <br/>
+
+  <div id="studying">
+    <div class="float" id="study-icon">
+      <img src="../assets/imgs/study.jpg"/>
+    </div>
+
+    <div class="float2" id="study-text">
+      <h2 style="color: #488aff;" (click)="openStudyPage()"> Studying </h2>
+      <p class="text">
+        Want to get the best out of your exchange semester?
+        Make your semesters an unforgettable and effortless experience that
+        you will tell your grand-children about!
+      </p>
+    </div>
+  </div>
+
+  <br/>
+  <hr>
+  <br/>
+
+  <div id="forum">
+
+    <div class="float2" id="forum-text">
+      <h2 style="color: #488aff;" (click)="openForumPage()"> Forum </h2>
+      <p class="text">
+        Have something on your mind?
+        Exchange your questions and experiences in
+        the interactive forum an get to know new people
+        around Las Palmas de Gran Canaria!
+      </p>
+    </div>
+
+    <div class="float" id="forum-icon">
+      <img src="../assets/imgs/forum.jpg"/>
+    </div>
+  </div>
+
 </ion-content>
