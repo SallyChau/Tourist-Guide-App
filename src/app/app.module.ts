@@ -15,6 +15,8 @@ import { OverviewPage } from "../pages/travel/overview/overview";
 import { BucketlistPage } from "../pages/travel/bucketlist/bucketlist";
 import { SightsPage } from "../pages/travel/sights/sights";
 import { NiePage } from "../pages/live/nie/nie";
+import { AccomodationPage } from "../pages/live/accomodation/accomodation";
+import { BusPage } from "../pages/live/bus/bus";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -33,7 +35,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     OverviewPage,
     BucketlistPage,
     SightsPage,
-    NiePage
+    NiePage,
+    AccomodationPage,
+    BusPage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     OverviewPage,
     BucketlistPage,
     SightsPage,
-    NiePage
+    NiePage,
+    AccomodationPage,
+    BusPage
   ],
   providers: [
     StatusBar,

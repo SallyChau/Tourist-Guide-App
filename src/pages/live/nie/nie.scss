@@ -2,3 +2,22 @@ page-nie {
 
 }
 
+.text{
+  font-size: 16px;
+  text-align: left;
+}
+
+.tutorial-page {
+
+  .slide-zoom {
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .slide-image {
+    max-height: 50%;
+    max-width: 60%;
+    margin: 18px 0;
+  }
+
+}

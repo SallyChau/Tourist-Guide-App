@@ -3,34 +3,117 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Register as a Canarian resident</ion-title>
+    <ion-title>Register as a Canarian resident!</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="tutorial-page">
   <ion-slides pager>
 
     <ion-slide>
-      <h1>Step 1</h1>
-      <p>Go to your nearest gobierno and apply for the NIE.</p>
-      <img src="../assets/imgs/gobierno.jpg"/>
-      <p>
-        More description stuff...
+      <h1>Step 1: The NIE.</h1>
+      <img class="slide-image" src="../assets/imgs/gobierno.jpg"/>
+
+      <p class="text">
+        The NIE (Numero Identificacion Extranjeros) is a unique
+        identification number for all foreigners residing in
+        Spain. It is needed if you want to work, open a bank account
+        or buy a house in Spain.
+        <br/>
+        For the application of your NIE, go to your local
+        police station (gobierno) and bring the following documents:
+      </p>
+
+      <ion-list>
+        <ion-item text-wrap>
+          <ion-label>Copy and original passport or ID</ion-label>
+          <ion-checkbox [(ngModel)]="id"></ion-checkbox>
+        </ion-item>
+        <ion-item text-wrap>
+          <ion-label>Copy and original health insurance card</ion-label>
+          <ion-checkbox [(ngModel)]="health"></ion-checkbox>
+        </ion-item>
+        <ion-item text-wrap>
+          <ion-label>Copy and original rent contract</ion-label>
+          <ion-checkbox [(ngModel)]="rent"></ion-checkbox>
+        </ion-item>
+        <ion-item text-wrap>
+          <ion-label type="url">
+            <a href="http://www.canario.co.uk/worth_knowing/moving/ansog_nie.pdf">
+            NIE Application Form
+            </a>
+          </ion-label>
+          <ion-checkbox [(ngModel)]="form"></ion-checkbox>
+        </ion-item>
+      </ion-list>
+
+    </ion-slide>
+
+    <ion-slide>
+      <h2>Step 2: The Residencia.</h2>
+      <img class="slide-image" src="../assets/imgs/ayuntamiento.jpg"/>
+      <p class="text">
+        To finalize the registration, it is necessary to register
+        at your local town hall (ayuntamiento). Often it is
+        necessary to make an appointment in advance. You can do this
+        either online or at one of the machines at the town hall.
+        <br/>
+        On the day of your appointment, don't forget to bring the
+        following documents:
+      </p>
+
+      <ion-list>
+        <ion-item text-wrap>
+          <ion-label>Copy and original passport or ID</ion-label>
+          <ion-checkbox [(ngModel)]="id2"></ion-checkbox>
+        </ion-item>
+        <ion-item text-wrap>
+          <ion-label>Copy and original rent contract and proof of last rent payment</ion-label>
+          <ion-checkbox [(ngModel)]="rent2"></ion-checkbox>
+        </ion-item>
+        <ion-item text-wrap>
+          <ion-label type="url">
+            Your NIE (see Step 1)
+          </ion-label>
+          <ion-checkbox [(ngModel)]="form2"></ion-checkbox>
+        </ion-item>
+      </ion-list>
+
+      <p class="text">
+        If you would like to enjoy the Canarian benefits for entrance
+        and flight fees, you might need a <b>Certificado de Viaje</b> for the first
+        couple of months until you have been registered in the
+        city's system. Just ask for it at your town hall.
       </p>
     </ion-slide>
 
     <ion-slide>
-      <h2>Step 2</h2>
-      <p>Make an appointment at the Ayuntemiento de Las Palmas and apply for the Canarian residency.</p>
-      <img src="../assets/imgs/ayuntamiento.jpg"/>
-      <p>
-        More description stuff...
+      <h2>Step 3: Enjoying the perks.</h2>
+      <img class="slide-image" src="../assets/imgs/enjoy.jpg"/>
+      <p class="text">Use your status of a Canarian resident to
+        benefit from the promotions on flights, ferries and entrance fees.
       </p>
-    </ion-slide>
 
-    <ion-slide>
-      <h2>Step 3</h2>
-      <p>Use residencia (how to book flights, entrance in museums)</p>
+      <ion-list>
+        <ion-item>
+          <ion-label text-wrap>
+            <i class="fa fa-plane" aria-hidden="true"></i> &nbsp;
+            When booking a flight or a ferry, just tick that you are a Canarian resident.
+            The system will check your status based on your name. During the first weeks after your
+            registration, this might not be possible. But don't worry! Just keep
+            your <b>Certificado de Viaje</b> at hand.
+          </ion-label>
+
+        </ion-item>
+
+        <ion-item>
+          <ion-label text-wrap>
+            <i class="fa fa-camera-retro" aria-hidden="true"></i> &nbsp;
+            For admission fee discounts for museums and sights,
+            just show your NIE card.
+          </ion-label>
+        </ion-item>
+      </ion-list>
     </ion-slide>
 
   </ion-slides>

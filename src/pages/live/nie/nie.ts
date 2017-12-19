@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from "ionic-angular";
 
 @Component({
   selector: 'page-nie',
@@ -7,7 +6,5 @@ import { NavController } from "ionic-angular";
 })
 export class NiePage {
 
-  constructor(public navCtrl: NavController){
 
-  }
 }

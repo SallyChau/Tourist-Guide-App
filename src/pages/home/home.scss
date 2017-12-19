@@ -13,10 +13,12 @@ div + div { /*space between divs*/
   height: 100% !important;
   margin-top: -50px; /* the height of the centered content */
   text-align: center;
+
 }
 .center .scroll {
   display: table-cell;
   vertical-align: middle;
+  width:100%;
 }
 
 .float {
