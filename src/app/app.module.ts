@@ -20,6 +20,9 @@ import { BusPage } from "../pages/live/bus/bus";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {LiveforumPage} from "../pages/forum/liveforum/liveforum";
+import {TravelforumPage} from "../pages/forum/travelforum/travelforum";
+import {StudyforumPage} from "../pages/forum/studyforum/studyforum";
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SightsPage,
     NiePage,
     AccomodationPage,
-    BusPage
+    BusPage,
+    LiveforumPage,
+    TravelforumPage,
+    StudyforumPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +65,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SightsPage,
     NiePage,
     AccomodationPage,
-    BusPage
+    BusPage,
+    LiveforumPage,
+    TravelforumPage,
+    StudyforumPage
   ],
   providers: [
     StatusBar,
