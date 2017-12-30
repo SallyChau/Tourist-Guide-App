@@ -31,8 +31,8 @@ export class LiveforumPage {
 
   openAlertNewThread() {
     let prompt = this.alertCtrl.create({
-      title: 'Create new thread',
-      message: "Enter a topic or question you would like to talk about",
+      title: 'Create a new thread',
+      message: "Enter a topic or question you would like to talk about.",
       inputs: [
         {
           name: 'title',
@@ -43,15 +43,11 @@ export class LiveforumPage {
         {
           text: 'Cancel',
           handler: data => {
-            console.log('Cancel clicked');
           }
         },
         {
           text: 'Save',
           handler: data => {
-            console.log('Saved clicked');
-            console.log(data.title);
-            //this.addThread(data.title);
             data.topic = "living";
             this.threadsService.create(data)
               .then(response => {

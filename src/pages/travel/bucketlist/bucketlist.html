@@ -11,6 +11,16 @@
   <h1>Travel Bucket-List</h1>
 
   <ion-list>
+    <ion-item>
+      <ion-label *ngFor="let task of tasks">
+        {{task.title}}
+      </ion-label>
+      <!--<ion-checkbox [checked]="task.completed"></ion-checkbox>-->
+    </ion-item>
+  </ion-list>
+
+  <!--
+  <ion-list>
 
     <ion-item>
       <ion-label>Sunbathe at the beach of Las Canteras</ion-label>
@@ -62,5 +72,5 @@
       <ion-checkbox [(ngModel)]="isleta"></ion-checkbox>
     </ion-item>
 
-  </ion-list>
+  </ion-list>-->
 </ion-content>

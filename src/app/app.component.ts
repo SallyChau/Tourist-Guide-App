@@ -11,6 +11,7 @@ import { TravelPage } from '../pages/travel/travel';
 import { LivePage} from '../pages/live/live';
 import { StudyPage} from '../pages/study/study';
 import { ForumPage} from '../pages/forum/forum';
+import {BucketlistServiceProvider} from "../providers/bucketlist-service/bucketlist-service";
 
 @Component({
   templateUrl: 'app.html'
@@ -26,6 +27,7 @@ export class MyApp {
               public statusBar: StatusBar,
               public splashScreen: SplashScreen,
               public threadsService: ThreadsServiceProvider,
+              public bucketlistService: BucketlistServiceProvider,
               private sqlite: SQLite) {
 
     this.initializeApp();
@@ -65,7 +67,10 @@ export class MyApp {
     })
       .then((db) => {
         this.threadsService.setDatabase(db);
-        return this.threadsService.createTable();
+        this.threadsService.createTable();
+
+        this.bucketlistService.setDatabase(db);
+        this.bucketlistService.createTable();
       })
       .catch(error =>{
         console.error(error);

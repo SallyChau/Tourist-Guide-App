@@ -25,6 +25,7 @@ import { TravelforumPage } from "../pages/forum/travelforum/travelforum";
 import { StudyforumPage } from "../pages/forum/studyforum/studyforum";
 import { SQLite } from "@ionic-native/sqlite";
 import { ThreadsServiceProvider } from '../providers/threads-service/threads-service';
+import { BucketlistServiceProvider } from '../providers/bucketlist-service/bucketlist-service';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { ThreadsServiceProvider } from '../providers/threads-service/threads-ser
     SplashScreen,
     SQLite,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ThreadsServiceProvider
+    ThreadsServiceProvider,
+    BucketlistServiceProvider
   ]
 })
 export class AppModule {}
