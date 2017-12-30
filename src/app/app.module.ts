@@ -20,9 +20,11 @@ import { BusPage } from "../pages/live/bus/bus";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {LiveforumPage} from "../pages/forum/liveforum/liveforum";
-import {TravelforumPage} from "../pages/forum/travelforum/travelforum";
-import {StudyforumPage} from "../pages/forum/studyforum/studyforum";
+import { LiveforumPage} from "../pages/forum/liveforum/liveforum";
+import { TravelforumPage } from "../pages/forum/travelforum/travelforum";
+import { StudyforumPage } from "../pages/forum/studyforum/studyforum";
+import { SQLite } from "@ionic-native/sqlite";
+import { ThreadsServiceProvider } from '../providers/threads-service/threads-service';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import {StudyforumPage} from "../pages/forum/studyforum/studyforum";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    SQLite,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ThreadsServiceProvider
   ]
 })
 export class AppModule {}

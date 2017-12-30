@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { SQLite } from "@ionic-native/sqlite";
+import { ThreadsServiceProvider } from "../providers/threads-service/threads-service";
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -20,10 +22,15 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform,
+              public statusBar: StatusBar,
+              public splashScreen: SplashScreen,
+              public threadsService: ThreadsServiceProvider,
+              private sqlite: SQLite) {
+
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
+    // used for navigation
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
@@ -41,6 +48,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.createDatabase();
     });
   }
 
@@ -48,5 +56,19 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  private createDatabase(){
+    this.sqlite.create({
+      name: 'dwdm.db',
+      location: 'default'
+    })
+      .then((db) => {
+        this.threadsService.setDatabase(db);
+        return this.threadsService.createTable();
+      })
+      .catch(error =>{
+        console.error(error);
+      });
   }
 }
