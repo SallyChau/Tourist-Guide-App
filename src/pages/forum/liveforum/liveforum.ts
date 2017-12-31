@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { AlertController } from "ionic-angular";
+import {AlertController, NavController} from "ionic-angular";
 import { ThreadsServiceProvider } from "../../../providers/threads-service/threads-service";
+import {ThreadPage} from "../threadPage/thread";
 
 @Component({
   selector: 'page-liveforum',
@@ -11,6 +12,7 @@ export class LiveforumPage {
   threads: any[] = [];
 
   constructor(public alertCtrl: AlertController,
+              public navCtrl: NavController,
               public threadsService: ThreadsServiceProvider) {
 
   }
@@ -20,7 +22,7 @@ export class LiveforumPage {
   }
 
   getAllThreads(){
-    this.threadsService.getAll()
+    this.threadsService.getAllThreadsWithTag("living")
       .then(threads => {
         this.threads = threads;
       })
@@ -49,7 +51,7 @@ export class LiveforumPage {
           text: 'Save',
           handler: data => {
             data.topic = "living";
-            this.threadsService.create(data)
+            this.threadsService.createThread(data)
               .then(response => {
                 this.threads.unshift(data);
               })
@@ -65,7 +67,7 @@ export class LiveforumPage {
 
   updateThread(thread, index){
     thread = Object.assign({}, thread);
-    this.threadsService.update(thread)
+    this.threadsService.updateThread(thread)
       .then( response => {
         this.threads[index] = thread;
       })
@@ -75,7 +77,7 @@ export class LiveforumPage {
   }
 
   deleteThread(thread: any, index){
-    this.threadsService.delete(thread)
+    this.threadsService.deleteThread(thread)
       .then(response => {
         console.log( response );
         this.threads.splice(index, 1);
@@ -83,5 +85,9 @@ export class LiveforumPage {
       .catch( error => {
         console.error( error );
       })
+  }
+
+  openThreadPage(thread: any){
+    this.navCtrl.push(ThreadPage, [thread]);
   }
 }

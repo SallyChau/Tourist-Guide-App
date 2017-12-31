@@ -17,10 +17,19 @@
     <ion-item-divider color="light">
       Existing Threads on Travelling in Las Palmas
     </ion-item-divider>
-    <button ion-item detail-push *ngFor="let thread of threads">
-      <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
-      {{thread.title}}
-    </button>
+    <ion-item-sliding *ngFor="let thread of threads; let i = index">
+
+      <button ion-item detail-push (click)="openThreadPage(thread)">
+        <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+        {{thread.title}}
+      </button>
+
+      <ion-item-options side="right" icon-left>
+        <button ion-button color="danger" (click)="deleteThread(thread, i)">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 
 </ion-content>

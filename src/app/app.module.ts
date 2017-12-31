@@ -4,7 +4,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { TravelPage } from '../pages/travel/travel';
 import { NaturePage } from "../pages/travel/nature/nature";
 import { LivePage } from '../pages/live/live';
@@ -17,6 +16,8 @@ import { SightsPage } from "../pages/travel/sights/sights";
 import { NiePage } from "../pages/live/nie/nie";
 import { AccomodationPage } from "../pages/live/accomodation/accomodation";
 import { BusPage } from "../pages/live/bus/bus";
+import { ThreadPage } from "../pages/forum/threadPage/thread";
+import { ElasticModule } from "angular2-elastic";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -31,7 +32,6 @@ import { BucketlistServiceProvider } from '../providers/bucketlist-service/bucke
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     TravelPage,
     NaturePage,
     ShopsPage,
@@ -46,17 +46,18 @@ import { BucketlistServiceProvider } from '../providers/bucketlist-service/bucke
     BusPage,
     LiveforumPage,
     TravelforumPage,
-    StudyforumPage
+    StudyforumPage,
+    ThreadPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    ElasticModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     TravelPage,
     NaturePage,
     ShopsPage,
@@ -71,7 +72,8 @@ import { BucketlistServiceProvider } from '../providers/bucketlist-service/bucke
     BusPage,
     LiveforumPage,
     TravelforumPage,
-    StudyforumPage
+    StudyforumPage,
+    ThreadPage
   ],
   providers: [
     StatusBar,
@@ -79,7 +81,8 @@ import { BucketlistServiceProvider } from '../providers/bucketlist-service/bucke
     SQLite,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ThreadsServiceProvider,
-    BucketlistServiceProvider
+    BucketlistServiceProvider,
+    BucketlistPage
   ]
 })
 export class AppModule {}

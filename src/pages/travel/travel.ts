@@ -14,7 +14,7 @@ import { OverviewPage } from "./overview/overview";
     </ion-header>
     <ion-tabs class="tabs-basic">
       <ion-tab tabTitle="Overview" [root]="overviewTab"></ion-tab>
-      <ion-tab tabTitle="Bucket-List" [root]="bucketlistTab"></ion-tab>
+      <ion-tab tabTitle="Bucketlist" [root]="bucketlistTab"></ion-tab>
     </ion-tabs>`
 })
 export class TravelPage {

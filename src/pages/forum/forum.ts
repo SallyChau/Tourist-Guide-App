@@ -30,6 +30,4 @@ export class ForumPage {
     this.liveTab = LiveforumPage;
     this.studyTab = StudyforumPage;
   }
-
-
 }
