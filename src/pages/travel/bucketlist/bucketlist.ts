@@ -19,6 +19,10 @@ export class BucketlistPage {
     this.getAllTasks();
   }
 
+  ionViewDidEnter(){
+    this.getAllTasks();
+  }
+
   getAllTasks(){
     this.bucketlistService.getAll()
       .then(tasks => {
@@ -83,7 +87,7 @@ export class BucketlistPage {
       })
       .catch( error => {
         console.error( error );
-      })
+      });
   }
 
   deleteTask(thread: any, index){

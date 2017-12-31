@@ -15,14 +15,14 @@ export class OverviewPage {
   }
 
   openNaturePage() {
-    this.navCtrl.setRoot(NaturePage);
+    this.navCtrl.push(NaturePage);
   }
 
   openShopsPage() {
-    this.navCtrl.setRoot(ShopsPage);
+    this.navCtrl.push(ShopsPage);
   }
 
   openSightsPage() {
-    this.navCtrl.setRoot(SightsPage);
+    this.navCtrl.push(SightsPage);
   }
 }
