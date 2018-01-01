@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Study</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="card-background-page">
+
+  <ion-card>
+    <img src="../assets/imgs/study.jpg"/>
+    <div class="card-title">Study in Las Palmas.</div>
+    <div class="card-subtitle">Educate yourself and improve your spanish!
+      <br/>
+      <br/>
+      Find out how to...</div>
+  </ion-card>
+
+  <ion-list>
+    <button ion-item (click)="openCampusPage()">
+      <i class="fa fa-home" aria-hidden="true"></i> &nbsp;
+      Find your campus!
+    </button>
+    <button ion-item (click)="openCoursePage()">
+      <i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp;
+      Manage your courses!
+    </button>
+    <button ion-item (click)="openSpanishPage()">
+      <i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp;
+      Enrol for a spanish course!
+    </button>
+  </ion-list>
+
+</ion-content>
