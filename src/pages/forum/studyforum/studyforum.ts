@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AlertController } from "ionic-angular";
+import { AlertController, NavController } from "ionic-angular";
+import {ThreadPage} from "../threadPage/thread";
 import { ThreadsServiceProvider } from "../../../providers/threads-service/threads-service";
 
 @Component({
@@ -11,6 +12,7 @@ export class StudyforumPage {
   threads: any[] = [];
 
   constructor(public alertCtrl: AlertController,
+              public navCtrl: NavController,
               public threadsService: ThreadsServiceProvider) {
 
   }
@@ -20,7 +22,7 @@ export class StudyforumPage {
   }
 
   getAllThreads(){
-    this.threadsService.getAll()
+    this.threadsService.getAllThreadsWithTag("studying")
       .then(threads => {
         this.threads = threads;
       })
@@ -49,7 +51,15 @@ export class StudyforumPage {
           text: 'Save',
           handler: data => {
             data.topic = "studying";
-            this.threadsService.create(data)
+            var date = new Date();
+            var month = date.getMonth() + 1;
+            data.date = date.getFullYear().toString() + "-" +
+              month.toString() + "-" +
+              date.getDate().toString() + " " +
+              date.getHours().toString() + ":" +
+              date.getMinutes().toString() + ":" +
+              date.getSeconds().toString();
+            this.threadsService.createThread(data)
               .then(response => {
                 this.threads.unshift(data);
               })
@@ -65,7 +75,7 @@ export class StudyforumPage {
 
   updateThread(thread, index){
     thread = Object.assign({}, thread);
-    this.threadsService.update(thread)
+    this.threadsService.updateThread(thread)
       .then( response => {
         this.threads[index] = thread;
       })
@@ -75,7 +85,11 @@ export class StudyforumPage {
   }
 
   deleteThread(thread: any, index){
-    this.threadsService.delete(thread)
+    // delete all answers to thread
+    this.threadsService.deleteAnswer(thread.id);
+
+    // delete thread
+    this.threadsService.deleteThread(thread)
       .then(response => {
         console.log( response );
         this.threads.splice(index, 1);
@@ -83,5 +97,9 @@ export class StudyforumPage {
       .catch( error => {
         console.error( error );
       })
+  }
+
+  openThreadPage(thread: any){
+    this.navCtrl.push(ThreadPage, [thread]);
   }
 }

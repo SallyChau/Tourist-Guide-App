@@ -8,69 +8,27 @@
 </ion-header>
 
 <ion-content padding>
-  <h1>Travel Bucket-List</h1>
+  <h1>Travel Bucketlist</h1>
+
+  <ion-fab right bottom>
+    <button class="roundbtn" (click)="openAlertNewTask()">
+      +
+    </button>
+  </ion-fab>
 
   <ion-list>
-    <ion-item>
-      <ion-label *ngFor="let task of tasks">
-        {{task.title}}
-      </ion-label>
-      <!--<ion-checkbox [checked]="task.completed"></ion-checkbox>-->
-    </ion-item>
+    <ion-item-sliding *ngFor="let task of tasks; let i = index">
+      <ion-item text-wrap>
+        <ion-label>
+          {{task.title}}
+        </ion-label>
+        <ion-checkbox (ionChange)="updateTask( task, i )" [checked]="task.completed"></ion-checkbox>
+      </ion-item>
+      <ion-item-options side="right" icon-left>
+        <button ion-button color="danger" (click)="deleteTask(task, i)">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
-
-  <!--
-  <ion-list>
-
-    <ion-item>
-      <ion-label>Sunbathe at the beach of Las Canteras</ion-label>
-      <ion-checkbox [(ngModel)]="beach"></ion-checkbox>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Enjoy mojitos and tapas on a Thursday night out in Vegueta</ion-label>
-      <ion-checkbox [(ngModel)]="vegueta"></ion-checkbox>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Enjoy an authentic Spanish dinner including Sangria and Paella at the beach</ion-label>
-      <ion-checkbox [(ngModel)]="dinner"></ion-checkbox>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Visit the famous Roque Nublo</ion-label>
-      <ion-checkbox [(ngModel)]="nublo"></ion-checkbox>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Drive down to Maspalomas play in sand dunes</ion-label>
-      <ion-checkbox [(ngModel)]="maspalomas"></ion-checkbox>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Go shopping in Centro Comercial Las Arenas </ion-label>
-      <ion-checkbox [(ngModel)]="shopping"></ion-checkbox>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Take a walk through the old village</ion-label>
-      <ion-checkbox [(ngModel)]="village"></ion-checkbox>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Get inspired in the Mueso Elder</ion-label>
-      <ion-checkbox [(ngModel)]="museum"></ion-checkbox>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Learn about the Canary Islands in the Museo Canario</ion-label>
-      <ion-checkbox [(ngModel)]="museum-canary"></ion-checkbox>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Hike up the peninsula La Isleta to enjoy a marvelous view over the city</ion-label>
-      <ion-checkbox [(ngModel)]="isleta"></ion-checkbox>
-    </ion-item>
-
-  </ion-list>-->
 </ion-content>

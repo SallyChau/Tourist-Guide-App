@@ -3,19 +3,19 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SQLite } from "@ionic-native/sqlite";
+import { BucketlistServiceProvider } from "../providers/bucketlist-service/bucketlist-service";
 import { ThreadsServiceProvider } from "../providers/threads-service/threads-service";
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { TravelPage } from '../pages/travel/travel';
 import { LivePage} from '../pages/live/live';
 import { StudyPage} from '../pages/study/study';
 import { ForumPage} from '../pages/forum/forum';
-import {BucketlistServiceProvider} from "../providers/bucketlist-service/bucketlist-service";
 
 @Component({
   templateUrl: 'app.html'
 })
+
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
@@ -35,7 +35,6 @@ export class MyApp {
     // used for navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
       { title: 'Travelling', component: TravelPage },
       { title: 'Living', component: LivePage },
       { title: 'Studying', component: StudyPage },
@@ -46,8 +45,6 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.createDatabase();

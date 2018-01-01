@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar hideBackButton="true">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -26,24 +26,20 @@
 
       <ion-list>
         <ion-item text-wrap>
-          <ion-label>Copy and original passport or ID</ion-label>
-          <ion-checkbox [(ngModel)]="id"></ion-checkbox>
+          <ion-label><i class="fa fa-check" aria-hidden="true"></i> Copy and original passport or ID</ion-label>
         </ion-item>
         <ion-item text-wrap>
-          <ion-label>Copy and original health insurance card</ion-label>
-          <ion-checkbox [(ngModel)]="health"></ion-checkbox>
+          <ion-label><i class="fa fa-check" aria-hidden="true"></i> Copy and original health insurance card</ion-label>
         </ion-item>
         <ion-item text-wrap>
-          <ion-label>Copy and original rent contract</ion-label>
-          <ion-checkbox [(ngModel)]="rent"></ion-checkbox>
+          <ion-label><i class="fa fa-check" aria-hidden="true"></i> Copy and original rent contract</ion-label>
         </ion-item>
         <ion-item text-wrap>
-          <ion-label type="url">
+          <ion-label type="url"><i class="fa fa-check" aria-hidden="true"></i>
             <a href="http://www.canario.co.uk/worth_knowing/moving/ansog_nie.pdf">
             NIE Application Form
             </a>
           </ion-label>
-          <ion-checkbox [(ngModel)]="form"></ion-checkbox>
         </ion-item>
       </ion-list>
 
@@ -64,18 +60,15 @@
 
       <ion-list>
         <ion-item text-wrap>
-          <ion-label>Copy and original passport or ID</ion-label>
-          <ion-checkbox [(ngModel)]="id2"></ion-checkbox>
+          <ion-label><i class="fa fa-check" aria-hidden="true"></i> Copy and original passport or ID</ion-label>
         </ion-item>
         <ion-item text-wrap>
-          <ion-label>Copy and original rent contract and proof of last rent payment</ion-label>
-          <ion-checkbox [(ngModel)]="rent2"></ion-checkbox>
+          <ion-label><i class="fa fa-check" aria-hidden="true"></i> Copy and original rent contract and proof of last rent payment</ion-label>
         </ion-item>
         <ion-item text-wrap>
-          <ion-label type="url">
+          <ion-label type="url"><i class="fa fa-check" aria-hidden="true"></i>
             Your NIE (see Step 1)
           </ion-label>
-          <ion-checkbox [(ngModel)]="form2"></ion-checkbox>
         </ion-item>
       </ion-list>
 

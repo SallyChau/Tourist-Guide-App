@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Thread</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div id="introForum">
+    <div id="titleForum">
+      <h4>{{title}}</h4>
+    </div>
+  </div>
+
+  <ion-scroll style="height: 100%" scrollY="true" direction="y" scrollbar-y="true">
+    <ion-list>
+      <ion-item text-wrap *ngFor="let answer of answers;">
+        <i class="fa fa-user-circle-o" aria-hidden="true"></i> {{answer.title}} <br/>
+        <p style="color: gray">{{answer.date}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-scroll>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar light>
+    <ion-item>
+      <ion-textarea fz-elastic [(ngModel)]="answer" placeholder="Type your answer here..."> </ion-textarea>
+      <button ion-button item-end (click)="submit()">Submit</button>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

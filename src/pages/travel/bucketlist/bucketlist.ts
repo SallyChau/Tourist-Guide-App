@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {BucketlistServiceProvider} from "../../../providers/bucketlist-service/bucketlist-service";
+import {AlertController} from "ionic-angular";
 
 @Component({
   selector: 'page-bucketlist',
@@ -9,11 +10,16 @@ export class BucketlistPage {
 
   tasks: any[] = [];
 
-  constructor(public bucketlistService: BucketlistServiceProvider) {
+  constructor(public alertCtrl: AlertController,
+              public bucketlistService: BucketlistServiceProvider) {
 
   }
 
   ionViewDidLoad(){
+    this.getAllTasks();
+  }
+
+  ionViewDidEnter(){
     this.getAllTasks();
   }
 
@@ -25,6 +31,40 @@ export class BucketlistPage {
       .catch( error => {
         console.error( error );
       });
+  }
+
+  openAlertNewTask() {
+    let prompt = this.alertCtrl.create({
+      title: 'Add a new task',
+      message: "Add a task to your personal bucketlist.",
+      inputs: [
+        {
+          name: 'title',
+          placeholder: 'Title'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            data.completed = false;
+            this.bucketlistService.create(data)
+              .then(response => {
+                this.tasks.unshift(data);
+              })
+              .catch(error => {
+                console.error(error);
+              })
+          }
+        }
+      ]
+    });
+    prompt.present();
   }
 
   createTask(title: String) {
@@ -40,13 +80,14 @@ export class BucketlistPage {
 
   updateTask(task, index){
     task = Object.assign({}, task);
+    task.completed = !task.completed;
     this.bucketlistService.update(task)
       .then( response => {
         this.tasks[index] = task;
       })
       .catch( error => {
         console.error( error );
-      })
+      });
   }
 
   deleteTask(thread: any, index){

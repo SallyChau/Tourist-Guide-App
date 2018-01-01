@@ -15,14 +15,14 @@ export class LivePage {
   }
 
   openNiePage(){
-    this.navCtrl.setRoot(NiePage);
+    this.navCtrl.push(NiePage);
   }
 
   openAccomodationPage(){
-    this.navCtrl.setRoot(AccomodationPage);
+    this.navCtrl.push(AccomodationPage);
   }
 
   openBusPage(){
-    this.navCtrl.setRoot(BusPage);
+    this.navCtrl.push(BusPage);
   }
 }

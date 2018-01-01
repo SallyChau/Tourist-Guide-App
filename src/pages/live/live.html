@@ -9,28 +9,19 @@
 
 <ion-content padding class="card-background-page">
 
-  <ion-card>
-    <img src="../assets/imgs/live.jpg"/>
-    <div class="card-title">Get settled in Las Palmas.</div>
-    <div class="card-subtitle">With these tips your first steps in Las Palmas de Gran Canaria
-      can be made easier for sure!
-      <br/>
-      <br/>
-      Find out how to ...</div>
+  <ion-card (click)="openAccomodationPage()">
+    <img src="../assets/imgs/home.jpg"/>
+    <div class="card-title">Find your new home!</div>
   </ion-card>
 
-  <ion-list>
-    <button ion-item (click)="openAccomodationPage()">
-      <i class="fa fa-home" aria-hidden="true"></i> &nbsp;
-      Find your new home!
-    </button>
-    <button ion-item (click)="openNiePage()">
-      <i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp;
-      Register as a Canarian resident and enjoy the perks!
-    </button>
-    <button ion-item (click)="openBusPage()">
-      <i class="fa fa-bus" aria-hidden="true"></i> &nbsp;
-      Use public transport like a local!
-    </button>
-  </ion-list>
+  <ion-card (click)="openNiePage()">
+    <img src="../assets/imgs/nie.jpg"/>
+    <div class="card-title">Register as a Canarian resident!</div>
+  </ion-card>
+
+  <ion-card (click)="openBusPage()">
+    <img src="../assets/imgs/guagua.jpg"/>
+    <div class="card-title">Use public transport like a local!</div>
+  </ion-card>
+
 </ion-content>
