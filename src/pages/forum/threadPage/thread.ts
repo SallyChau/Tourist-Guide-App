@@ -40,6 +40,14 @@ export class ThreadPage {
     data["topic"] = this.thread.topic;
     data["threadID"] = this.thread.id;
     data["title"] = this.answer;
+    var date = new Date();
+    var month = date.getMonth() + 1;
+    data["date"] = date.getFullYear().toString() + "-" +
+      month.toString() + "-" +
+      date.getDate().toString() + " " +
+      date.getHours().toString() + ":" +
+      date.getMinutes().toString() + ":" +
+      date.getSeconds().toString();
 
     this.threadsService.createAnswer(data)
       .then(response => {
@@ -47,7 +55,9 @@ export class ThreadPage {
       })
       .catch(error => {
         console.error(error);
-      })
+      });
+
+    this.getAllAnswers();
 
     this.answer = null;
   }

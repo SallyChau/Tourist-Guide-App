@@ -51,6 +51,14 @@ export class TravelforumPage {
           text: 'Save',
           handler: data => {
             data.topic = "travelling";
+            var date = new Date();
+            var month = date.getMonth() + 1;
+            data.date = date.getFullYear().toString() + "-" +
+              month.toString() + "-" +
+              date.getDate().toString() + " " +
+              date.getHours().toString() + ":" +
+              date.getMinutes().toString() + ":" +
+              date.getSeconds().toString();
             this.threadsService.createThread(data)
               .then(response => {
                 this.threads.unshift(data);
@@ -77,6 +85,10 @@ export class TravelforumPage {
   }
 
   deleteThread(thread: any, index){
+    // delete all answers to thread
+    this.threadsService.deleteAnswer(thread.id);
+
+    // delete thread
     this.threadsService.deleteThread(thread)
       .then(response => {
         console.log( response );

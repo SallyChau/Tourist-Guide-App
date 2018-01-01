@@ -28,12 +28,12 @@ export class ThreadsServiceProvider {
   }
 
   createThreadTable(){
-    let sql = 'CREATE TABLE IF NOT EXISTS threads(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, topic TEXT)';
+    let sql = 'CREATE TABLE IF NOT EXISTS threads(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, topic TEXT, date TEXT)';
     return this.db.executeSql(sql, []);
   }
 
   createAnswerTable(){
-    let sql = 'CREATE TABLE IF NOT EXISTS threadAnswers(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, threadID INTEGER, topic TEXT)';
+    let sql = 'CREATE TABLE IF NOT EXISTS threadAnswers(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, threadID INTEGER, topic TEXT, date TEXT)';
     return this.db.executeSql(sql, []);
   }
 
@@ -64,8 +64,8 @@ export class ThreadsServiceProvider {
   }
 
   createThread(thread: any){
-    let sql = 'INSERT INTO threads(title, topic) VALUES(?,?)';
-    return this.db.executeSql(sql, [thread.title, thread.topic]);
+    let sql = 'INSERT INTO threads(title, topic, date) VALUES(?,?,?)';
+    return this.db.executeSql(sql, [thread.title, thread.topic, thread.date]);
   }
 
   updateThread(thread: any){
@@ -107,8 +107,8 @@ export class ThreadsServiceProvider {
   }
 
   createAnswer(answer: any){
-    let sql = 'INSERT INTO threadAnswers(title, threadID, topic) VALUES(?,?,?)';
-    return this.db.executeSql(sql, [answer.title, answer.threadID, answer.topic]);
+    let sql = 'INSERT INTO threadAnswers(title, threadID, topic, date) VALUES(?,?,?,?)';
+    return this.db.executeSql(sql, [answer.title, answer.threadID, answer.topic, answer.date]);
   }
 
   updateAnswer(answer: any){
@@ -117,8 +117,8 @@ export class ThreadsServiceProvider {
   }
 
   deleteAnswer(answer: any){
-    let sql = 'DELETE FROM threadAnswers WHERE id=?';
-    return this.db.executeSql(sql, [answer.id]);
+    let sql = 'DELETE FROM threadAnswers WHERE threadID=?';
+    return this.db.executeSql(sql, [answer.threadID]);
   }
 
 }

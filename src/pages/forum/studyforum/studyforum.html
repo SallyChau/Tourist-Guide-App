@@ -10,7 +10,9 @@
 <ion-content padding>
 
   <ion-fab right bottom>
-    <button ion-fab color="primary" (click)="openAlertNewThread()"><ion-icon color="white" name="add"></ion-icon></button>
+    <button class="roundbtn" (click)="openAlertNewThread()">
+      +
+    </button>
   </ion-fab>
 
   <ion-list>
@@ -21,7 +23,8 @@
 
       <button ion-item detail-push (click)="openThreadPage(thread)">
         <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
-        {{thread.title}}
+        {{thread.title}} <br/>
+        <p style="color: gray">{{thread.date}}</p>
       </button>
 
       <ion-item-options side="right" icon-left>
