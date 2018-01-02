@@ -1,3 +1,44 @@
 page-accomodation {
 
 }
+
+.center .scroll-content {
+  display: table !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin-top: -50px; /* the height of the centered content */
+  text-align: center;
+}
+.center .scroll {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.textbus{
+  font-size: 16px;
+  text-align: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.float {
+  display: inline-block;
+  width: 300px;
+  height: 150px;
+  text-align: center;
+  margin-left: 30px;
+  margin-right: 30px;
+
+  //border-style: solid;
+}
+
+.float2 {
+  vertical-align:top;
+  display: inline-block;
+  width: 300px;
+  height: 150px;
+  text-align: left;
+  margin-left: 30px;
+  margin-right: 30px;
+  //border-style: solid;
+}

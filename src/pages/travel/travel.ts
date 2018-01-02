@@ -5,7 +5,7 @@ import { OverviewPage } from "./overview/overview";
 @Component({
   template: `
     <ion-header>
-      <ion-navbar>
+      <ion-navbar hideBackButton="true">
         <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
@@ -19,8 +19,8 @@ import { OverviewPage } from "./overview/overview";
 })
 export class TravelPage {
 
-  overviewTab: any;
-  bucketlistTab: any;
+  protected overviewTab: any;
+  protected bucketlistTab: any;
 
   constructor(){
     this.overviewTab = OverviewPage;

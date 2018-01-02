@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavParams } from "ionic-angular";
+import {AlertController, NavParams} from "ionic-angular";
 import { ThreadsServiceProvider } from "../../../providers/threads-service/threads-service";
 
 @Component({
@@ -9,23 +9,24 @@ import { ThreadsServiceProvider } from "../../../providers/threads-service/threa
 
 export class ThreadPage {
 
-  title = null;
-  answers: any[] = [];
-  thread: any = null;
-  answer = null;
+  protected title = null;
+  protected answers: any[] = [];
+  protected thread: any = null;
+  protected answer = null;
 
-  constructor(public navParam: NavParams,
-              public threadsService: ThreadsServiceProvider){
+  constructor(private navParam: NavParams,
+              private alertCtrl: AlertController,
+              private threadsService: ThreadsServiceProvider){
 
   }
 
-  ionViewDidLoad(){
+  private ionViewDidLoad(){
     this.thread = this.navParam.data[0];
     this.title = this.thread.title;
     this.getAllAnswers();
   }
 
-  getAllAnswers(){
+  private getAllAnswers(){
     this.threadsService.getAllAnswersWithThreadID(this.thread.id)
       .then(answers => {
         this.answers = answers;
@@ -35,30 +36,43 @@ export class ThreadPage {
       });
   }
 
-  submit(){
-    let data = {};
-    data["topic"] = this.thread.topic;
-    data["threadID"] = this.thread.id;
-    data["title"] = this.answer;
-    var date = new Date();
-    var month = date.getMonth() + 1;
-    data["date"] = date.getFullYear().toString() + "-" +
-      month.toString() + "-" +
-      date.getDate().toString() + " " +
-      date.getHours().toString() + ":" +
-      date.getMinutes().toString() + ":" +
-      date.getSeconds().toString();
+  protected submit(){
+    if (this.answer == null) {
+      this.emptyAnswerAlert();
+    } else {
+      let data = {};
+      data["topic"] = this.thread.topic;
+      data["threadID"] = this.thread.id;
+      data["title"] = this.answer;
+      var date = new Date();
+      var month = date.getMonth() + 1;
+      data["date"] = date.getFullYear().toString() + "-" +
+        month.toString() + "-" +
+        date.getDate().toString() + " " +
+        date.getHours().toString() + ":" +
+        date.getMinutes().toString() + ":" +
+        date.getSeconds().toString();
 
-    this.threadsService.createAnswer(data)
-      .then(response => {
-        this.answers.unshift(data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
+      this.threadsService.createAnswer(data)
+        .then(response => {
+          this.answers.unshift(data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
 
-    this.getAllAnswers();
+      this.getAllAnswers();
 
-    this.answer = null;
+      this.answer = null;
+    }
+  }
+
+  private emptyAnswerAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Empty answer',
+      subTitle: 'Please enter an answer to participcate in this discussion.',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 }

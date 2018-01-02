@@ -13,7 +13,7 @@ export class NaturePage {
 
   }
 
-  addToBucketlist(title:any){
+  protected addToBucketlist(title:any){
     this.bucketlist.createTask(title);
 
     let alert = this.alertCtrl.create({

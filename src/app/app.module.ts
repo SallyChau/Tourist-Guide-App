@@ -18,6 +18,9 @@ import { AccomodationPage } from "../pages/live/accomodation/accomodation";
 import { BusPage } from "../pages/live/bus/bus";
 import { ThreadPage } from "../pages/forum/threadPage/thread";
 import { ElasticModule } from "angular2-elastic";
+import { CampusPage } from "../pages/study/campus/campus";
+import { CoursePage } from "../pages/study/course/course";
+import { SpanishPage } from "../pages/study/spanish/spanish";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -47,7 +50,10 @@ import { BucketlistServiceProvider } from '../providers/bucketlist-service/bucke
     LiveforumPage,
     TravelforumPage,
     StudyforumPage,
-    ThreadPage
+    ThreadPage,
+    CampusPage,
+    CoursePage,
+    SpanishPage
   ],
   imports: [
     BrowserModule,
@@ -73,7 +79,10 @@ import { BucketlistServiceProvider } from '../providers/bucketlist-service/bucke
     LiveforumPage,
     TravelforumPage,
     StudyforumPage,
-    ThreadPage
+    ThreadPage,
+    CampusPage,
+    CoursePage,
+    SpanishPage
   ],
   providers: [
     StatusBar,

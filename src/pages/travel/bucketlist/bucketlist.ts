@@ -8,22 +8,22 @@ import {AlertController} from "ionic-angular";
 })
 export class BucketlistPage {
 
-  tasks: any[] = [];
+  protected tasks: any[] = [];
 
-  constructor(public alertCtrl: AlertController,
-              public bucketlistService: BucketlistServiceProvider) {
+  constructor(protected alertCtrl: AlertController,
+              protected bucketlistService: BucketlistServiceProvider) {
 
   }
 
-  ionViewDidLoad(){
+  public ionViewDidLoad(){
     this.getAllTasks();
   }
 
-  ionViewDidEnter(){
+  public ionViewDidEnter(){
     this.getAllTasks();
   }
 
-  getAllTasks(){
+  public getAllTasks(){
     this.bucketlistService.getAll()
       .then(tasks => {
         this.tasks = tasks;
@@ -33,7 +33,7 @@ export class BucketlistPage {
       });
   }
 
-  openAlertNewTask() {
+  public openAlertNewTask() {
     let prompt = this.alertCtrl.create({
       title: 'Add a new task',
       message: "Add a task to your personal bucketlist.",
@@ -67,7 +67,7 @@ export class BucketlistPage {
     prompt.present();
   }
 
-  createTask(title: String) {
+  public createTask(title: String) {
     let task = {title: title, completed: false};
     this.bucketlistService.create(task)
       .then(response => {
@@ -78,7 +78,7 @@ export class BucketlistPage {
       })
   }
 
-  updateTask(task, index){
+  public updateTask(task, index){
     task = Object.assign({}, task);
     task.completed = !task.completed;
     this.bucketlistService.update(task)
@@ -90,7 +90,7 @@ export class BucketlistPage {
       });
   }
 
-  deleteTask(thread: any, index){
+  public deleteTask(thread: any, index){
     this.bucketlistService.delete(thread)
       .then(response => {
         console.log( response );

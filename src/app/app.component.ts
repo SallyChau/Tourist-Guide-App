@@ -19,16 +19,16 @@ import { ForumPage} from '../pages/forum/forum';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  protected rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  protected pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform,
-              public statusBar: StatusBar,
-              public splashScreen: SplashScreen,
-              public threadsService: ThreadsServiceProvider,
-              public bucketlistService: BucketlistServiceProvider,
-              private sqlite: SQLite) {
+  constructor(protected platform: Platform,
+              protected statusBar: StatusBar,
+              protected splashScreen: SplashScreen,
+              protected threadsService: ThreadsServiceProvider,
+              protected bucketlistService: BucketlistServiceProvider,
+              protected sqlite: SQLite) {
 
     this.initializeApp();
 
@@ -43,7 +43,7 @@ export class MyApp {
 
   }
 
-  initializeApp() {
+  protected initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
@@ -51,10 +51,10 @@ export class MyApp {
     });
   }
 
-  openPage(page) {
+  protected openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.push(page.component);
   }
 
   private createDatabase(){

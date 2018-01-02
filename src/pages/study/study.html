@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar hideBackButton="true">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -7,7 +7,21 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Study</h3>
-  <i class="fa fa-globe" aria-hidden="true"></i>
+<ion-content padding class="card-background-page">
+
+  <ion-card (click)="openCampusPage()">
+    <img src="../assets/imgs/ulpgc.jpg"/>
+    <div class="card-title">Find your campus!</div>
+  </ion-card>
+
+  <ion-card (click)="openCoursePage()">
+    <img src="../assets/imgs/study.jpg"/>
+    <div class="card-title">Manage your courses!</div>
+  </ion-card>
+
+  <ion-card (click)="openSpanishPage()">
+    <img src="../assets/imgs/hola.jpg"/>
+    <div class="card-title">Enrol for a Spanish course!</div>
+  </ion-card>
+
 </ion-content>

@@ -14,15 +14,15 @@ export class OverviewPage {
 
   }
 
-  openNaturePage() {
+  protected openNaturePage() {
     this.navCtrl.push(NaturePage);
   }
 
-  openShopsPage() {
+  protected openShopsPage() {
     this.navCtrl.push(ShopsPage);
   }
 
-  openSightsPage() {
+  protected openSightsPage() {
     this.navCtrl.push(SightsPage);
   }
 }

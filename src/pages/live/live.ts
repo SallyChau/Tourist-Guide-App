@@ -10,19 +10,19 @@ import {BusPage} from "./bus/bus";
 })
 export class LivePage {
 
-  constructor(public navCtrl: NavController){
+  constructor(protected navCtrl: NavController){
 
   }
 
-  openNiePage(){
+  protected openNiePage(){
     this.navCtrl.push(NiePage);
   }
 
-  openAccomodationPage(){
+  protected openAccomodationPage(){
     this.navCtrl.push(AccomodationPage);
   }
 
-  openBusPage(){
+  protected openBusPage(){
     this.navCtrl.push(BusPage);
   }
 }

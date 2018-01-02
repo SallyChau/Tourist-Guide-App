@@ -6,7 +6,7 @@ import {StudyforumPage} from "./studyforum/studyforum";
 @Component({
   template: `
     <ion-header>
-      <ion-navbar>
+      <ion-navbar hideBackButton="true">
         <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
@@ -21,9 +21,9 @@ import {StudyforumPage} from "./studyforum/studyforum";
 })
 export class ForumPage {
 
-  travelTab: any;
-  liveTab: any;
-  studyTab: any;
+  protected travelTab: any;
+  protected liveTab: any;
+  protected studyTab: any;
 
   constructor(){
     this.travelTab = TravelforumPage;

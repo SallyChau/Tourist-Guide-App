@@ -9,19 +9,19 @@ import {ThreadPage} from "../threadPage/thread";
 })
 export class LiveforumPage {
 
-  threads: any[] = [];
+  protected threads: any[] = [];
 
-  constructor(public alertCtrl: AlertController,
-              public navCtrl: NavController,
-              public threadsService: ThreadsServiceProvider) {
+  constructor(protected alertCtrl: AlertController,
+              protected navCtrl: NavController,
+              protected threadsService: ThreadsServiceProvider) {
 
   }
 
-  ionViewDidLoad(){
+  protected ionViewDidLoad(){
     this.getAllThreads();
   }
 
-  getAllThreads(){
+  protected getAllThreads(){
     this.threadsService.getAllThreadsWithTag("living")
       .then(threads => {
         this.threads = threads;
@@ -31,7 +31,7 @@ export class LiveforumPage {
       });
   }
 
-  openAlertNewThread() {
+  protected openAlertNewThread() {
     let prompt = this.alertCtrl.create({
       title: 'Create a new thread',
       message: "Enter a topic or question you would like to talk about.",
@@ -73,7 +73,7 @@ export class LiveforumPage {
     prompt.present();
   }
 
-  updateThread(thread, index){
+  protected updateThread(thread, index){
     thread = Object.assign({}, thread);
     this.threadsService.updateThread(thread)
       .then( response => {
@@ -84,7 +84,7 @@ export class LiveforumPage {
       })
   }
 
-  deleteThread(thread: any, index){
+  protected deleteThread(thread: any, index){
     // delete all answers to thread
     this.threadsService.deleteAnswer(thread.id);
 
@@ -99,7 +99,7 @@ export class LiveforumPage {
       })
   }
 
-  openThreadPage(thread: any){
+  protected openThreadPage(thread: any){
     this.navCtrl.push(ThreadPage, [thread]);
   }
 }

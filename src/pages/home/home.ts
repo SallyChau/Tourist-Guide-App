@@ -11,24 +11,24 @@ import {ForumPage} from "../forum/forum";
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(protected navCtrl: NavController) {
 
   }
 
-  openTravelPage(){
-    this.navCtrl.setRoot(TravelPage);
+  protected openTravelPage(){
+    this.navCtrl.push(TravelPage);
   }
 
-  openLivePage(){
-    this.navCtrl.setRoot(LivePage);
+  protected openLivePage(){
+    this.navCtrl.push(LivePage);
   }
 
-  openStudyPage(){
-    this.navCtrl.setRoot(StudyPage);
+  protected openStudyPage(){
+    this.navCtrl.push(StudyPage);
   }
 
-  openForumPage(){
-    this.navCtrl.setRoot(ForumPage);
+  protected openForumPage(){
+    this.navCtrl.push(ForumPage);
   }
 
 }
